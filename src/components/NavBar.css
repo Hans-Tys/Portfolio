@@ -1,0 +1,27 @@
+
+
+.NavBar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    background-color: rgb(51, 51, 51);
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.destination{
+    padding-left: 20px;
+    color: #b7d7e5cb;
+}
+
+.destination:hover{
+    color: #aff3ff;
+
+}

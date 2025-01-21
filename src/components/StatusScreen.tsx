@@ -41,65 +41,29 @@ function StatusScreen() {
     checkLvlup();
 
 
-    const Button = ({onClick}: {onClick: () => void}) => {
-      return(
-        <div>
-          <button style={{fontSize: 10}} onClick={onClick}>  
-            +
-          </button>
-        </div>
-      )
-    }
-
-    const statpoint = ({short, value, onclick} : {short: string, value: string, onclick: () => void}) => {
-      return(
-        <div>
-          {short}: {value}
-          <Button onClick={onclick}/>
-        </div>
-      )
-    }
-    
-
-    function lvlAgility() {
-  
-      if (statpoints >= 1) {
-        return <div>
-        <button style={{fontSize: 10}} onClick={() => {setAgility((agility) + 1); setStatpoints((statpoints) - 1)} }>+</button>
-      </div>
+    const Button = ({onclick}: {onclick: () => void}) => {
+      if (statpoints >= 1){
+        return(
+          <div>
+            <button style={{fontSize: 10}} onClick={onclick}> 
+              +
+            </button>
+          </div>          
+        )
       }
     }
-    lvlAgility();
 
-    function lvlInteligence() {
-  
-      if (statpoints >= 1) {
-        return <div>
-        <button style={{fontSize: 10}} onClick={() => {setInteligence((inteligence) + 1); setStatpoints((statpoints) - 1); setMaxMp((maxmp) +10)} }>+</button>
+    {/*
+    const Statpoint = ({short, value, onclick} : {short: string, value: number, onclick: () => void}) => {
+      if (statpoints >= 1)
+     { return(
+      <div>
+        {short}: {value}
+        <Button onClick={onclick}/>
       </div>
-      }
+    )}
     }
-    lvlInteligence();
-
-    function lvlVitality() {
-  
-      if (statpoints >= 1) {
-        return <div>
-        <button style={{fontSize: 10}} onClick={() => {setVitality((vitality) + 1); setStatpoints((statpoints) - 1); setMaxhp((maxhp) +10)} }>+</button>
-      </div>
-      }
-    }
-    lvlVitality();
-
-    function lvlPerception() {
-  
-      if (statpoints >= 1) {
-        return <div>
-        <button style={{fontSize: 10}} onClick={() => {setPerception((perception) + 1); setStatpoints((statpoints) - 1)} }>+</button>
-      </div>
-      }
-    }
-    lvlPerception();    
+     */}
    
 
   return (
@@ -112,7 +76,7 @@ function StatusScreen() {
             <div className='stats-container'> 
               <div className='level'>
                 <div> 
-                  <h1>{Data.map((Data) => (Data.player.lvl))}</h1> 
+                  <h1>{lvl}</h1> 
                   <p>LEVEL</p>
                 </div>
                 <div className='occupation'>
@@ -129,12 +93,20 @@ function StatusScreen() {
               </div>
               <div className='stats'>
                     <div className='statpoints'>STR: {strenght}
-                      <Button onClick={ () => setStrenght(strenght+1)}/>
+                      <Button onclick={ () => {setStrenght(strenght+1), setStatpoints(statpoints-1)}}/>
                     </div>
-                    <div className='statpoints'>AGI: {agility}{lvlAgility()}  </div>
-                    <div className='statpoints'>PER: {perception}{lvlPerception()}</div>
-                    <div className='statpoints'>VIT: {vitality}{lvlVitality()}</div>
-                    <div className='statpoints'>INT: {inteligence}{lvlInteligence()}</div>                   
+                    <div className='statpoints'> AGI: {agility}
+                      <Button onclick={ () => {setAgility(agility+1), setStatpoints(statpoints-1)}}/>
+                    </div>
+                    <div className='statpoints'>PER: {perception}
+                      <Button onclick={ () => {setPerception(perception+1), setStatpoints(statpoints-1)}}/>
+                    </div>
+                    <div className='statpoints'>VIT: {vitality} 
+                     <Button onclick={ () => {setVitality(vitality+1), setMaxhp(maxhp+10), setStatpoints(statpoints-1)}}/>
+                    </div>
+                    <div className='statpoints'>INT: {inteligence}
+                     <Button onclick={ () => {setInteligence(inteligence+1), setMaxMp(maxmp+10), setStatpoints(statpoints-1)}}/>
+                    </div>                   
               </div>
               <button style={{fontSize: 10}} onClick={() => setExp((exp) + 10) }>+exp</button>
               <button style={{fontSize: 10}} onClick={() => {setcurrentHp(maxhp); setcurrentMp(maxmp)} }>full recovery</button>
@@ -142,7 +114,7 @@ function StatusScreen() {
                   <p style={{color:'red'}}>{statpoints}</p>
             </div>
             </div>
-  )
+  ) 
 }
 
 export default StatusScreen

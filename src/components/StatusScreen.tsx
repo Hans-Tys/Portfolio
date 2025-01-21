@@ -1,9 +1,12 @@
 import HealthBar from './HealthBar.tsx';
 import ManaBar from './ManaBar.tsx';
 import './StatusScreen.css';
-import { useState } from "react"
+import { useState } from "react";
+import  { faHeart, faTrashCan, faDumbbell, faShoePrints, faEye, faBook } from "@fortawesome/free-solid-svg-icons";
 import Data from "../Data.json"
 import { data } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Row } from 'react-bootstrap';
 
 function MyCurrentJob(){
   return(
@@ -53,17 +56,16 @@ function StatusScreen() {
       }
     }
 
-    {/*
+   
     const Statpoint = ({short, value, onclick} : {short: string, value: number, onclick: () => void}) => {
-      if (statpoints >= 1)
-     { return(
-      <div>
-        {short}: {value}
-        <Button onClick={onclick}/>
-      </div>
-    )}
+      return(
+        <div style={{display:'flex', flexDirection:'row', gap:15, margin:0, height:20}}>
+          {short}: {value}
+          {statpoints !== 0 ? <Button onclick={onclick}/> : <></>}
+        </div>
+      )  
     }
-     */}
+
    
 
   return (
@@ -92,21 +94,31 @@ function StatusScreen() {
                 <ManaBar Mana={currentMp} maxMana={maxmp}/>
               </div>
               <div className='stats'>
-                    <div className='statpoints'>STR: {strenght}
-                      <Button onclick={ () => {setStrenght(strenght+1), setStatpoints(statpoints-1)}}/>
-                    </div>
-                    <div className='statpoints'> AGI: {agility}
-                      <Button onclick={ () => {setAgility(agility+1), setStatpoints(statpoints-1)}}/>
-                    </div>
-                    <div className='statpoints'>PER: {perception}
-                      <Button onclick={ () => {setPerception(perception+1), setStatpoints(statpoints-1)}}/>
-                    </div>
-                    <div className='statpoints'>VIT: {vitality} 
-                     <Button onclick={ () => {setVitality(vitality+1), setMaxhp(maxhp+10), setStatpoints(statpoints-1)}}/>
-                    </div>
-                    <div className='statpoints'>INT: {inteligence}
-                     <Button onclick={ () => {setInteligence(inteligence+1), setMaxMp(maxmp+10), setStatpoints(statpoints-1)}}/>
-                    </div>                   
+                {/*possibe for each*/}
+                <div className='statpoints'>
+                  <FontAwesomeIcon icon={faDumbbell}/>
+                  <Statpoint short="STR" value={strenght} onclick={() => { setStrenght(strenght + 1), setStatpoints(statpoints - 1);}}/>    
+                </div>
+                <div className='statpoints'>
+                  <FontAwesomeIcon icon={faShoePrints}/>
+                  <Statpoint short='AGI' value={agility} onclick={ () => {setAgility(agility+1), setStatpoints(statpoints-1)}}/> 
+                </div>
+                <div className='statpoints'>
+                  <FontAwesomeIcon icon={faEye}/>
+                  <Statpoint short="PER" value={perception} onclick={ () => {setPerception(perception+1), setStatpoints(statpoints-1)}}/> 
+                </div>
+                <div className='statpoints'>
+                  <FontAwesomeIcon icon={faHeart}/>
+                  <Statpoint short="VIT" value={vitality} onclick={ () => {setVitality(vitality+1), setMaxhp(maxhp+10), setStatpoints(statpoints-1)}}/>  
+                </div>
+                <div className='statpoints'>
+                  <FontAwesomeIcon icon={faBook}/>
+                  <Statpoint short="INT" value={inteligence} onclick={ () => {setInteligence(inteligence+1), setMaxMp(maxmp+10), setStatpoints(statpoints-1)}}/> 
+                </div>       
+                                               
+                
+                            
+                                                    
               </div>
               <button style={{fontSize: 10}} onClick={() => setExp((exp) + 10) }>+exp</button>
               <button style={{fontSize: 10}} onClick={() => {setcurrentHp(maxhp); setcurrentMp(maxmp)} }>full recovery</button>

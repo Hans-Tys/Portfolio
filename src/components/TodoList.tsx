@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import  { faCircleCheck, faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
 
+
 export default function TodoList() {
 
     const [toDo, setToDo] = useState([
@@ -47,32 +48,46 @@ export default function TodoList() {
     }
 
     const changeTask = (e) => {
-
+        let newEntry = {
+            id: updateData.id,
+            Title: e.target.value,
+            Status: updateData.Status ? true : false
+        }
+        setUpdateData(newEntry);
     }
 
-    const updateTask = (e) => {
-
+    const updateTask = () => {
+        let filterRecords = [...toDo].filter( task => task.id !== updateData.id);
+        let updatedObject = [...filterRecords, updateData];
+        setToDo(updatedObject);
+        setUpdateData('');
     }
 
 
 
   return (
-    <div style={{margin:50}}>   
-          <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
-            <div>
-                <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }}
-                    value={ updateData && updateData.Title}
-                    onChange={ (e) => changeTask(e)}
-                />
-            </div>
-            <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}>
-                    Update
+
+        
+
+        <div style={{margin:50}}>   
+           <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
+               <div>
+                 <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }}
+                        value={ updateData && updateData.Title}
+                        onChange={ (e) => changeTask(e)}
+                    />
+             </div>
+             <div>
+                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}
+                    onClick={updateTask}>
+                        Update
                 </button>
             </div>
             <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#23475f"}}>
-                    Cancel
+                <button style={{marginLeft:28 , width:125, backgroundColor:"#23475f"}}
+                        onClick={cancelUpdate}
+                        >
+                        Cancel
                 </button>
             </div>
         </div>

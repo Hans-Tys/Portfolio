@@ -16,19 +16,34 @@ export default function TodoList() {
 
 
     const addTask = () => {
+        if(newTask) {
+            let num = toDo.length + 1;
+            let newEntry = { id: num, Title: newTask, Status: false }
+            setToDo([...toDo, newEntry])
+            setNewTask('');
+        }
 
     }
 
     const deleteTask = (id) => {
-
+        let newTasks = toDo.filter(task => task.id !== id);
+        setToDo(newTasks);
     }
 
     const markTaskAsDone = (id) => {
-
+        let newTask = toDo.map( task => {
+            if( task.id === id){
+                return({ ...task, Status: !task.Status })
+            }
+            return task;
+        })
+        setToDo(newTask);
+    
     }
+    
 
     const cancelUpdate = () => {
-
+        setUpdateData('');
     }
 
     const changeTask = (e) => {
@@ -45,7 +60,10 @@ export default function TodoList() {
     <div style={{margin:50}}>   
           <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
             <div>
-                <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }} />
+                <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }}
+                    value={ updateData && updateData.Title}
+                    onChange={ (e) => changeTask(e)}
+                />
             </div>
             <div>
                 <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}>
@@ -59,12 +77,19 @@ export default function TodoList() {
             </div>
         </div>
 
+        
+
         <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
             <div>
-                <input type="text" name="" id="" style={{height:35, width:540, borderRadius: 15, paddingLeft:10 }} />
+                <input type="text" name="" id="" style={{height:35, width:540, borderRadius: 15, paddingLeft:10 }} 
+                value={newTask}
+                onChange={ (e) => setNewTask(e.target.value)}
+                />
             </div>
             <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}>
+                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}
+                    onClick={addTask}
+                >
                     add Task
                 </button>
             </div>
@@ -81,19 +106,31 @@ export default function TodoList() {
                 .map( (task, index) => {
                     return(
                         <React.Fragment key={task.id}>
-
                         <div className="TaskBg">
                             <div className={task.Status ? 'done': ''}>
                                 <span className="TaskNumber">{index + 1}</span>
                                 <span className="TaskText">{task.Title}</span>
                             </div>   
                             <div style={{display:"flex", flexDirection: "row", gap:10, fontSize:20, paddingRight:20}}>
-                                <span><FontAwesomeIcon icon={faCircleCheck}/></span>
-                                <span><FontAwesomeIcon icon={faPen}/></span>
-                                <span><FontAwesomeIcon icon={faTrashCan}/></span>
+                                <span><FontAwesomeIcon className="icons" icon={faCircleCheck}
+                                    onClick={ (e) => markTaskAsDone(task.id)}
+                                /></span>
+
+                                {task.Status ? null : (
+                                    <span><FontAwesomeIcon className="icons" icon={faPen}
+                                        onClick={ () => setUpdateData({
+                                            id: task.id, 
+                                            Title: task.Title,
+                                            Status: task.Status ? true : false
+                                        })}
+                                    /></span>
+                                )}
+                               
+                                <span><FontAwesomeIcon className="icons" icon={faTrashCan}
+                                    onClick={() => deleteTask(task.id)}
+                                /></span>
                             </div>
-                        </div>
-                        
+                        </div>     
                         </React.Fragment>
 
                     )

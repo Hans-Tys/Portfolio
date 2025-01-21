@@ -1,0 +1,16 @@
+[
+    {
+         "player": 
+            {
+                "name": "jinwoo",
+                "exp": 50,
+                "lvl": 1,
+                "strenght": 10,
+                "perception": 10,
+                "inteligence": 10,
+                "agility": 10,
+                "vitality": 10
+            }
+    }
+    
+]

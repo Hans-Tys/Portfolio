@@ -2,6 +2,8 @@ import HealthBar from './HealthBar.tsx';
 import ManaBar from './ManaBar.tsx';
 import './StatusScreen.css';
 import { useState } from "react"
+import Data from "../Data.json"
+import { data } from 'react-router-dom';
 
 function MyCurrentJob(){
   return(
@@ -37,16 +39,27 @@ function StatusScreen() {
       }
     }
     checkLvlup();
-    
-    function lvlStrenght() {
-  
-      if (statpoints >= 1) {
-        return <div>
-        <button style={{fontSize: 10}} onClick={() => {setStrenght((strenght) + 1); setStatpoints((statpoints) - 1)} }>+</button>
-      </div>
-      }
+
+
+    const Button = ({onClick}: {onClick: () => void}) => {
+      return(
+        <div>
+          <button style={{fontSize: 10}} onClick={onClick}>  
+            +
+          </button>
+        </div>
+      )
     }
-    lvlStrenght();
+
+    const statpoint = ({short, value, onclick} : {short: string, value: string, onclick: () => void}) => {
+      return(
+        <div>
+          {short}: {value}
+          <Button onClick={onclick}/>
+        </div>
+      )
+    }
+    
 
     function lvlAgility() {
   
@@ -93,13 +106,13 @@ function StatusScreen() {
     <div className='system'>
               
             <p className='system-header'>
-              STATUS
+              STATUS 
             </p>
     
             <div className='stats-container'> 
               <div className='level'>
                 <div> 
-                  <h1>{lvl}</h1> 
+                  <h1>{Data.map((Data) => (Data.player.lvl))}</h1> 
                   <p>LEVEL</p>
                 </div>
                 <div className='occupation'>
@@ -115,7 +128,9 @@ function StatusScreen() {
                 <ManaBar Mana={currentMp} maxMana={maxmp}/>
               </div>
               <div className='stats'>
-                    <div className='statpoints'>STR: {strenght}{lvlStrenght()}  </div>
+                    <div className='statpoints'>STR: {strenght}
+                      <Button onClick={ () => setStrenght(strenght+1)}/>
+                    </div>
                     <div className='statpoints'>AGI: {agility}{lvlAgility()}  </div>
                     <div className='statpoints'>PER: {perception}{lvlPerception()}</div>
                     <div className='statpoints'>VIT: {vitality}{lvlVitality()}</div>

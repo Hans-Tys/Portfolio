@@ -69,7 +69,7 @@ export default function TodoList() {
 
         
 
-        <div style={{margin:50}}>   
+        <div className="ToDoList">   
            <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
                <div>
                  <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }}

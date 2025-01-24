@@ -1,11 +1,12 @@
 
 .system {
     height: fit-content;
+    margin: 100px auto;
     width: 800px;
     border: solid 1px;
     border-radius: 2px;
     border-color: #b7d7e5cb;
-    color: #b7d7e5cb;
+    color: #000000cb;
     text-align: center;
     display: flex;
     flex-direction: column;

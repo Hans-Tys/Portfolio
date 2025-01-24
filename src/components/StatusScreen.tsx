@@ -1,12 +1,12 @@
 import HealthBar from './HealthBar.tsx';
 import ManaBar from './ManaBar.tsx';
 import './StatusScreen.css';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import  { faHeart, faTrashCan, faDumbbell, faShoePrints, faEye, faBook } from "@fortawesome/free-solid-svg-icons";
 import Data from "../Data.json"
-import { data } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Row } from 'react-bootstrap';
+import axios from 'axios'
+
 
 function MyCurrentJob(){
   return(
@@ -33,6 +33,22 @@ function StatusScreen() {
     const [maxmp, setMaxMp] = useState(100);
     const [currentHp, setcurrentHp] = useState(100);
     const [currentMp, setcurrentMp] = useState(100);
+
+    useEffect(() => {
+  
+      axios('C:\dev\react-from-zero-to-hero\src\Data.json')
+      .then(function(response){
+        console.log(response.data.player.name);
+      })
+    
+    }, [exp, lvl, strenght, perception, inteligence, agility, vitality ])
+
+
+    {/* trying to get axios work*/}
+    axios('https://www.npmjs.com/package/react-axios')
+      .then(function(response){
+        console.log(response.data);
+      })
   
     function checkLvlup(){
       if (exp >= 100) {
@@ -43,7 +59,7 @@ function StatusScreen() {
     }
     checkLvlup();
 
-
+    {/*could be a seperate file */}
     const Button = ({onclick}: {onclick: () => void}) => {
       if (statpoints >= 1){
         return(

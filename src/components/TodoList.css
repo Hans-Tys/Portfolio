@@ -1,3 +1,10 @@
+.ToDoList{
+    margin: 100px auto;
+    width: fit-content;
+  
+}
+
+
 .TaskList{
     display: flex;
     flex-direction: column;

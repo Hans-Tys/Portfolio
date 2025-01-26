@@ -1,5 +1,7 @@
 import './Home.css'
-import { NavLink as Link, NavLink }  from "react-router-dom";
+import Projects from './Projects.tsx'
+
+
 
 
 export default function Home() {
@@ -32,8 +34,8 @@ export default function Home() {
         <div className="HomeBanner d-flex justify-content-around">
           <div className='BannerText'>
             <p>Hey, mijn naam is Hans Tys </p>
-            <h4>Ik ben een Junior Front end ontwikkelaar die geinteresserd is in het maken van Web applicaties met gebruik van react</h4>
-            <NavLink className="ContactButton" to={"/contact"}>Contacteer mij</NavLink>
+            <h4>Ik ben een Junior Front end ontwikkelaar die geïnteresseerd is in het maken van Web applicaties met gebruik van react</h4>
+            
           </div>
           <div className='Devider'></div>
           <div className='ProfileImage'>
@@ -96,8 +98,13 @@ export default function Home() {
               </div>
 
           </div>
-          <div id='Projects' className="ProjectsContainer">Projects</div>
-        </div>     
+         
+          <Projects/> 
+          
+                    
+          
+        </div> 
+  
     </div>    
   )
 }

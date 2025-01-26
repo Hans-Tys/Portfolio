@@ -10,6 +10,9 @@
     width: 100%;
     gap: 50px;
     background-color: rgb(51, 51, 51);
+    -webkit-box-shadow: 3px 3.5px 8px 3px rgba(0, 0, 0, 0.36);
+    -moz-box-shadow: 3px 3.5px 8px 3px rgba(0, 0, 0, 0.36);
+    box-shadow: 3px 3.5px 8px 3px rgba(0, 0, 0, 0.36);
 }
 
 .NavBar{
@@ -21,6 +24,7 @@
     display: flex;
     flex-direction: row;
     gap: 20px;
+    
 }
 
 .NavBar-logo{
@@ -53,7 +57,7 @@
     position: absolute;
     right: 10px;
     top: 13px;
-    z-index: 3;
+    z-index: 100;
 }
 
 .Hamburger > span{
@@ -90,7 +94,7 @@
         width: 100%;
         list-style: none;
         flex-direction: column;
-        background-color: rgb(51, 51, 51);
+        background-color: rgba(51, 51, 51, 0.753);
         margin: 0;
         padding: 0;
     }

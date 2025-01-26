@@ -85,6 +85,7 @@ function StatusScreen() {
    
 
   return (
+    <div className='Statusscreen'>
     <div className='system'>
               
             <p className='system-header'>
@@ -104,6 +105,7 @@ function StatusScreen() {
               
               </div>
               <div className='resources'>
+                
                 <p>HP</p>
                 <HealthBar Health={currentHp} maxHealth={maxhp}/>
                 <p>MP</p>
@@ -141,7 +143,8 @@ function StatusScreen() {
                   {exp}  
                   <p style={{color:'red'}}>{statpoints}</p>
             </div>
-            </div>
+    </div>
+    </div>
   ) 
 }
 

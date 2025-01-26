@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './ToDoList.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import  { faCircleCheck, faPen, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import  { faCircleCheck, faPen, faTrashCan , faArrowsRotate, faBan } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -45,6 +45,7 @@ export default function TodoList() {
 
     const cancelUpdate = () => {
         setUpdateData('');
+        setOpenUpdate(false);
     }
 
     const changeTask = (e) => {
@@ -61,48 +62,57 @@ export default function TodoList() {
         let updatedObject = [...filterRecords, updateData];
         setToDo(updatedObject);
         setUpdateData('');
+        setOpenUpdate(false);
     }
+
+    const [openUpdate, setOpenUpdate] = useState(false);
 
 
 
   return (
 
+    
+    <div className="ToDoListPage">
+        <div className="ToDoList"> 
+            <h1>TO DO LIST</h1> 
+
+            {
+                openUpdate ? 
+                <div className="updateCancelcontainer" >
+                
+                    <input type="text" name="" id="" className="inputUpdate"
+                            value={ updateData && updateData.Title}
+                            onChange={ (e) => changeTask(e)}
+                        />
+            
+                <div>
+                    <button className="UpdateButton" 
+                        onClick={updateTask}>
+                            <FontAwesomeIcon icon={faArrowsRotate}/>
+                    </button>
+                </div>
+                <div>
+                    <button className="CancelButton"
+                            onClick={cancelUpdate}
+                            >
+                            <FontAwesomeIcon icon={faBan}/>
+                    </button>
+                </div>
+            </div> : <></>
+            }
+            
+
         
 
-        <div className="ToDoList">   
-           <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
-               <div>
-                 <input type="text" name="" id="" style={{height:35, width:385, borderRadius: 15, paddingLeft:10 }}
-                        value={ updateData && updateData.Title}
-                        onChange={ (e) => changeTask(e)}
-                    />
-             </div>
-             <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}
-                    onClick={updateTask}>
-                        Update
-                </button>
-            </div>
-            <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#23475f"}}
-                        onClick={cancelUpdate}
-                        >
-                        Cancel
-                </button>
-            </div>
-        </div>
-
-        
-
-        <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0}}>
-            <div>
-                <input type="text" name="" id="" style={{height:35, width:540, borderRadius: 15, paddingLeft:10 }} 
+        <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0,  justifyContent:"space-between"}}>
+            
+                <input type="text" name="" id="" className="inputNewTask"
                 value={newTask}
                 onChange={ (e) => setNewTask(e.target.value)}
                 />
-            </div>
+           
             <div>
-                <button style={{marginLeft:28 , width:125, backgroundColor:"#5a8586"}}
+                <button className="AddButton" 
                     onClick={addTask}
                 >
                     add Task
@@ -127,17 +137,17 @@ export default function TodoList() {
                                 <span className="TaskText">{task.Title}</span>
                             </div>   
                             <div style={{display:"flex", flexDirection: "row", gap:10, fontSize:20, paddingRight:20}}>
-                                <span><FontAwesomeIcon className="icons" icon={faCircleCheck}
+                                <span><FontAwesomeIcon className="MarkDone" icon={faCircleCheck}
                                     onClick={ (e) => markTaskAsDone(task.id)}
                                 /></span>
 
                                 {task.Status ? null : (
-                                    <span><FontAwesomeIcon className="icons" icon={faPen}
-                                        onClick={ () => setUpdateData({
+                                    <span><FontAwesomeIcon className="Edit" icon={faPen}
+                                        onClick={ () => {setUpdateData({
                                             id: task.id, 
                                             Title: task.Title,
                                             Status: task.Status ? true : false
-                                        })}
+                                        }), setOpenUpdate(true)}}
                                     /></span>
                                 )}
                                
@@ -154,6 +164,7 @@ export default function TodoList() {
             }
         </div>
 
+        </div>
     </div>
   )
 }

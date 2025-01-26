@@ -1,0 +1,13 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "./Footer.css"
+import  { faEnvelope, faSignature, faMobile } from "@fortawesome/free-solid-svg-icons";
+
+export default function Footer() {
+  return (
+    <div className="Footer"> 
+        <p><FontAwesomeIcon icon={faSignature}/> - Hans Tys</p>
+        <p><FontAwesomeIcon icon={faEnvelope}/> - Hans.ak.Tys@gmail.com</p>
+        <p><FontAwesomeIcon icon={faMobile}/> - 0471426911</p>
+    </div>
+  )
+}

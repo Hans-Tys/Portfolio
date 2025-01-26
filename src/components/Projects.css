@@ -1,0 +1,41 @@
+
+.ProjectsContainer{
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+    margin-bottom: 100px;
+}
+
+.ProjectCard{
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    justify-content: center;
+    color: black;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+}
+.ProjectText{
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(240, 248, 255, 0);
+    padding: 25px;
+    padding-top: 75px;
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.ProjectText:hover{
+    color: white;
+    background-color: rgba(0, 0, 0, 0.493);
+}
+    
+

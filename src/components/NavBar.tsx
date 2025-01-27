@@ -1,4 +1,4 @@
-import { NavLink as Link, NavLink }  from "react-router-dom";
+import { NavLink  }  from "react-router-dom";
 import './NavBar.css'
 import { useState } from "react";
 import { useEffect } from "react";
@@ -24,7 +24,7 @@ export default function NavBar() {
 
   const [burgerOpen ,setBurgerOpen] =  useState(false)
 
-  const [innerWidth, setInnerWidth] = useState(window.innerWidth)
+  const [, setInnerWidth] = useState(window.innerWidth)
   
   useEffect(() => {
     const HandelResize = () => {

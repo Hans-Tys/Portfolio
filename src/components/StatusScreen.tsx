@@ -2,8 +2,7 @@ import HealthBar from './HealthBar.tsx';
 import ManaBar from './ManaBar.tsx';
 import './StatusScreen.css';
 import { useEffect, useState } from "react";
-import  { faHeart, faTrashCan, faDumbbell, faShoePrints, faEye, faBook } from "@fortawesome/free-solid-svg-icons";
-import Data from "../Data.json"
+import  { faHeart, faDumbbell, faShoePrints, faEye, faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios'
 

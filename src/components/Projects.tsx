@@ -1,4 +1,4 @@
-import { NavLink as Link, NavLink }  from "react-router-dom";
+import {  NavLink }  from "react-router-dom";
 import './Projects.css'
 
 export default function Projects() {
@@ -14,6 +14,12 @@ export default function Projects() {
             title: "To Do List",
             desc: "A simple to do list",
             bg: "https://images.pexels.com/photos/3832031/pexels-photo-3832031.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        },
+        {
+            link: "/WeatherApp",
+            title: "WeatherApp",
+            desc: "A simple WeatherApp to show working with an API",
+            bg: "https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
         }
         
     

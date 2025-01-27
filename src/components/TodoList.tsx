@@ -7,9 +7,14 @@ import  { faCircleCheck, faPen, faTrashCan , faArrowsRotate, faBan } from "@fort
 
 export default function TodoList() {
 
+    interface toDo {
+        id: number,
+        Title: string,
+        Status: boolean
+    }
     const [toDo, setToDo] = useState([
-        {"id": 1, "Title": "Task 1", "Status": false},
-        {"id": 2, "Title": "Task 2", "Status": false}
+        {id: 1, Title: "Task 1", Status: false},
+        {id: 2 , Title: "Task 2", Status: false}
     ]);
 
     const [newTask ,setNewTask] = useState('');
@@ -26,12 +31,12 @@ export default function TodoList() {
 
     }
 
-    const deleteTask = (id) => {
+    const deleteTask = (id: number) => {
         let newTasks = toDo.filter(task => task.id !== id);
         setToDo(newTasks);
     }
 
-    const markTaskAsDone = (id) => {
+    const markTaskAsDone = (id: number) => {
         let newTask = toDo.map( task => {
             if( task.id === id){
                 return({ ...task, Status: !task.Status })
@@ -48,7 +53,7 @@ export default function TodoList() {
         setOpenUpdate(false);
     }
 
-    const changeTask = (e) => {
+    const changeTask = (e: React.ChangeEvent<HTMLInputElement>) => {
         let newEntry = {
             id: updateData.id,
             Title: e.target.value,

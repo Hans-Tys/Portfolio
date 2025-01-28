@@ -1,4 +1,4 @@
-import { NavLink, useLocation  }  from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import './NavBar.css'
 import { useState } from "react";
 import { useEffect } from "react";
@@ -15,14 +15,14 @@ export default function NavBar() {
 
   ]
 
-  const [burgerOpen ,setBurgerOpen] =  useState(false)
+  const [burgerOpen, setBurgerOpen] = useState(false)
 
   const [, setInnerWidth] = useState(window.innerWidth)
-  
+
   useEffect(() => {
     const HandelResize = () => {
       setInnerWidth(window.innerWidth);
-      if(window.innerWidth > 800){
+      if (window.innerWidth > 800) {
         setBurgerOpen(false)
       }
     }
@@ -34,38 +34,33 @@ export default function NavBar() {
 
   return (
     <div>
-       <div className="Hamburger" onClick={() =>{setBurgerOpen(!burgerOpen)}}>
-          <span className="lineB"></span>
-          <span className="lineB"></span>
-          <span className="lineB"></span>
-        </div>
+      <div className="Hamburger" onClick={() => { setBurgerOpen(!burgerOpen) }}>
+        <span className="lineB"></span>
+        <span className="lineB"></span>
+        <span className="lineB"></span>
+      </div>
 
-        <div className="container-Navbar">
-          <span  className="NavBar-logo">Hans Tys</span>
-          <div className="lineNavBar"></div>
-          <div className="NavBar">
+      <div className="container-Navbar">
+        <span className="NavBar-logo">Hans Tys</span>
+        <div className="lineNavBar"></div>
+        <div className="NavBar">
           {
-            burgerOpen || window.innerWidth > 800 ? 
-            
-              Destinations.map((Destination) =>{
-                return(
-                  <span><NavLink className="destination" to={Destination.destination} onClick={() => setBurgerOpen(false)}> {Destination.title}  </NavLink></span>
+            burgerOpen || window.innerWidth > 800 ?
+              <>
+                {Destinations.map((Destination) => {
+                  return (
+                    <span><NavLink className="destination" to={Destination.destination} onClick={() => setBurgerOpen(false)}> {Destination.title}  </NavLink></span>
+                  )
+                }
                 )
-              }) 
-             : <></>
-          }   
-
-          
-           
-          {
-            
-            
-          pathname === '/' ? <a href="#projects">Projects</a> : <a href="/">back</a>
+                }
+                {
+                  pathname === '/' ? <a href="#projects">Projects</a> : <a href="/">back</a>
+                }
+                </> : <></>
           }
-          
-         
-          </div>
         </div>
+      </div>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 import './Home.css'
 import Projects from './Projects.tsx'
-import MouseFollower from './MouseFollower.tsx'
+
 
 
 
@@ -32,7 +32,6 @@ export default function Home() {
 
   return (
     <div>
-      <MouseFollower/>
       <div className="HomeBanner d-flex justify-content-around">
         <div className='BannerText'>
           <p>Hey, mijn naam is Hans Tys </p>

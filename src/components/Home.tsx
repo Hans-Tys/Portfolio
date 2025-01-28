@@ -99,7 +99,7 @@ export default function Home() {
           </div>
 
         </div>
-        <div style={{textAlign:'center'}}>
+        <div className="projects" style={{textAlign:'center'}}>
           <h3>Projects</h3>
           <p  style={{paddingTop:20}}>Dit zijn kleine Webapp Projecten om react en verschillende onderdelen te oefenen</p>
           <Projects />

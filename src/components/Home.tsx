@@ -33,7 +33,6 @@ export default function Home() {
   return (
     <div>
       <MouseFollower/>
-      <div id='stalker' className='mouseCircle'></div>
       <div className="HomeBanner d-flex justify-content-around">
         <div className='BannerText'>
           <p>Hey, mijn naam is Hans Tys </p>

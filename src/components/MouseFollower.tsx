@@ -27,6 +27,6 @@ export default function MouseFollower() {
   
   
   return (
-    <div className="mouseCircle"></div>
+    <div className="mouseCircle" style={{top: mousePos.y, left:mousePos.x }}></div>
   )
 }

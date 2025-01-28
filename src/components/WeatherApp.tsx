@@ -204,6 +204,17 @@ export default function weatherapp() {
         )
     }
 
+    const Input = () => {
+        const handleKeyDown = (event: any) => {
+          if (event.key === 'Enter') {
+            SearchAdress();
+          }
+        }
+      
+        return <input className="" type="text" name="adress" id="" onKeyDown={handleKeyDown}  value={newQuerry}
+                    onChange={(e) => setNewQuerry(e.target.value)} />
+      }
+
 
     return (
 
@@ -212,8 +223,7 @@ export default function weatherapp() {
         >
             <div className="WeatherAppScreen">
                 <div className="SearchBar">
-                    <input className="" type="text" name="adress" id="" value={newQuerry}
-                        onChange={(e) => setNewQuerry(e.target.value)} />
+                    {Input()}
                     <button className="submitButton" onClick={SearchAdress}><FontAwesomeIcon icon={faMagnifyingGlass} /> </button>
                 </div>
                 <h1>{location ? <>{location}</> : <><br /></>}</h1>

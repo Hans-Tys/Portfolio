@@ -3,10 +3,6 @@ import './TodoList.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import  { faCircleCheck, faPen, faTrashCan , faArrowsRotate, faBan } from "@fortawesome/free-solid-svg-icons";
 
- 
-
-
-
 export default function TodoList() {
     type Todo = {
         id: number,
@@ -72,6 +68,34 @@ export default function TodoList() {
       }, [])
 
 
+      const InputAdd = () => {
+        const handleKeyDown = (event: any) => {
+          if (event.key === 'Enter') {
+            addTask();
+          }
+        }
+      
+        return <input type="text" name="" id="" className="inputNewTask"
+        value={newTask}
+        onKeyDown={handleKeyDown}
+        onChange={ (e) => setNewTask(e.target.value)}
+        />
+      }
+
+      const InputUpdate = () => {
+        const handleKeyDown = (event: any) => {
+          if (event.key === 'Enter') {
+            updateTask();
+          }
+        }
+      
+        return <input type="text" name="" id="" className="inputUpdate"
+        value={ updateData?.Title ?? '' }
+        onKeyDown={handleKeyDown}
+        onChange={ (e) => changeTask(e)}
+    />
+      }
+
   return (
 
     
@@ -83,10 +107,7 @@ export default function TodoList() {
                 openUpdate ? 
                 <div className="updateCancelcontainer" >
                 
-                    <input type="text" name="" id="" className="inputUpdate"
-                            value={ updateData?.Title ?? '' }
-                            onChange={ (e) => changeTask(e)}
-                        />
+                    {InputUpdate()}
             
                 <div>
                     <button className="UpdateButton" 
@@ -109,10 +130,7 @@ export default function TodoList() {
 
         <div style={{display:"flex", flexDirection:'row', marginBottom:15, marginLeft:0,  justifyContent:"space-between"}}>
             
-                <input type="text" name="" id="" className="inputNewTask"
-                value={newTask}
-                onChange={ (e) => setNewTask(e.target.value)}
-                />
+                {InputAdd()}
            
             <div>
                 <button className="AddButton" 

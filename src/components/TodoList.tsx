@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import './ToDoList.css'
+import './TodoList.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import  { faCircleCheck, faPen, faTrashCan , faArrowsRotate, faBan } from "@fortawesome/free-solid-svg-icons";
 

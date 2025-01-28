@@ -19,9 +19,11 @@ export default function MouseFollower() {
 
   useEffect(() => {
     window.addEventListener('mousemove', mouseMove)
+    window.addEventListener('scroll' ,mouseMove)
 
     return () => {
         window.removeEventListener("mousemove", mouseMove)
+        window.removeEventListener('scroll' ,mouseMove)
     }
   }, [])
   

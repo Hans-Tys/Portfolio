@@ -1,24 +1,17 @@
-import { NavLink  }  from "react-router-dom";
+import { NavLink, useLocation  }  from "react-router-dom";
 import './NavBar.css'
 import { useState } from "react";
 import { useEffect } from "react";
 
 export default function NavBar() {
+  const location = useLocation();
+  const { pathname } = location;
+
   const Destinations = [
     {
       title: 'home',
       destination: "/"
     },
-    {
-      title: 'System',
-      destination: "/System"
-    },
-    {
-      title: 'To do List',
-      destination: "/ToDo list"
-    },
- 
-    
 
   ]
 
@@ -36,6 +29,8 @@ export default function NavBar() {
     window.addEventListener("resize", HandelResize)
 
   }, [])
+
+  console.log(location);
 
   return (
     <div>
@@ -59,6 +54,16 @@ export default function NavBar() {
               }) 
              : <></>
           }   
+
+          
+           
+          {
+            
+            
+          pathname === '/' ? <a href="#projects">Projects</a> : <a href="/">back</a>
+          }
+          
+         
           </div>
         </div>
     </div>

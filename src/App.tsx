@@ -6,7 +6,7 @@ import NavBar from './components/NavBar.tsx';
 import TodoList from './components/TodoList.tsx'
 import Footer from "./components/Footer.tsx";
 import ArtGallery from './components/ArtGallery.tsx';
-import WeatherApp from './components/weatherapp.tsx';
+import WeatherApp from './components/WeatherApp.tsx';
 
 
 import {

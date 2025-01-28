@@ -1,0 +1,9 @@
+.mouseCircle{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(137, 43, 226, 0.308);
+    border-radius: 50%;
+}

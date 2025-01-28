@@ -60,13 +60,39 @@
 
 .AdvInfo{
     display: flex;
-    flex-direction: column;
-    width: 50%;
+    flex-direction: row;
+    gap: 13px;
+    width: 90%;
     padding-top: 50px;
+    max-width: 400px;
+    margin-top: 12px;
+
 }
+
+.AdvInfo div{
+    border: 1px solid white;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    width: 25%;
+}
+
+.AdvInfo p {
+    margin: 0;
+}
+
+
 
 .WeatherIcon{
     font-size: 50px;
+}
+
+.WeatherIconMedium{
+    font-size: 30px;
 }
 
 .smallWeatherIcon{
@@ -79,6 +105,7 @@
 
 .nextDays{
     padding-top: 25px;
+    max-width: 400px;
     width: 90%;
     text-align: left;
     display: flex;
@@ -90,9 +117,7 @@
     border-radius: 15px;
     margin-top: 12px;
 }
-.nextDays p {
-    font-size: 12px;
-}
+
 
 
 @media only screen and (min-width: 800px) {
@@ -109,7 +134,7 @@
 
   @media only screen and (min-width: 1000px) {
     .WeatherAppScreen{
-        width: 70%;
+        width: 50%;
         border-radius: 50px;
     }
 

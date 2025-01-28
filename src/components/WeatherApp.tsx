@@ -1,6 +1,6 @@
 import { useState , useEffect} from "react";
 import "./WeatherApp.css";
-import  { faSun, faCloudRain, faCloudSun, faDroplet, faCloud, faMagnifyingGlass , faCloudMoon, faMoon, faSnowflake, faSmog, faWind} from "@fortawesome/free-solid-svg-icons";
+import  { faSun, faCloudRain, faCloudSun, faDroplet, faCloud, faMagnifyingGlass , faCloudMoon, faMoon, faSnowflake, faSmog, faWind, faEye} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
@@ -13,28 +13,67 @@ export default function weatherapp() {
   const [feeltemp, setFeelTemp] = useState();
   const [humidity, setHumidity] = useState();
   const [windSpeed, setWindspeed] = useState();
+  const [visibility, setVisibility] = useState();
+  const [cloudcover, setCloudCover] = useState();
 
   const [day1 ,setDay1] = useState('');
   const [day1W ,setDay1W] = useState('');
-  
+  const [day1t , setDay1t] =useState(0);
+  const [day2 ,setDay2] = useState('');
+  const [day2W ,setDay2W] = useState('');
+  const [day2t , setDay2t] =useState(0);
+  const [day3 ,setDay3] = useState('');
+  const [day3W ,setDay3W] = useState('');
+  const [day3t , setDay3t] =useState(0);
+  const [day4 ,setDay4] = useState('');
+  const [day4W ,setDay4W] = useState('');
+  const [day4t , setDay4t] =useState(0);
+  const [day5 ,setDay5] = useState('');
+  const [day5W ,setDay5W] = useState('');
+  const [day5t , setDay5t] =useState(0);
 
+  const apiKey = import.meta.env.VITE_API_KEY;
 
   const CallWeatherApi = async (location: string ) =>{
-    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=XYQQAWCFVBSUN37S82FKHBDKL`;
+    const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=${apiKey}`;
     const response = await fetch(url); 
     const WeatherBody = await response.json();
-    const Day1 = WeatherBody.days[0]
+
+
+
+    const Day1 = WeatherBody.days[1]
     setDay1(Day1.datetime.slice(5, 10));
     setDay1W(Day1.icon)
-    
+    setDay1t(Day1.temp)
+
+    const Day2 = WeatherBody.days[2]
+    setDay2(Day2.datetime.slice(5, 10));
+    setDay2W(Day2.icon)
+    setDay2t(Day2.temp)
+
+    const Day3 = WeatherBody.days[3]
+    setDay3(Day3.datetime.slice(5, 10));
+    setDay3W(Day3.icon)
+    setDay3t(Day3.temp)
+
+    const Day4 = WeatherBody.days[4]
+    setDay4(Day4.datetime.slice(5, 10));
+    setDay4W(Day4.icon)
+    setDay4t(Day4.temp)
+
+    const Day5 = WeatherBody.days[5]
+    setDay5(Day5.datetime.slice(5, 10));
+    setDay5W(Day5.icon)
+    setDay5t(Day5.temp)
+
+    setCloudCover(WeatherBody.currentConditions.cloudcover)
+    setVisibility(WeatherBody.currentConditions.visibility)
     setLocation(WeatherBody.address);
     setTemp(WeatherBody.currentConditions.temp)
     setFeelTemp(WeatherBody.currentConditions.feelslike)
     setcondition(WeatherBody.currentConditions.icon)
     setHumidity(WeatherBody.currentConditions.humidity)
     setWindspeed(WeatherBody.currentConditions.windspeed)
-    console.log(WeatherBody);
-    
     updateBg(WeatherBody.currentConditions.icon);
   }
     
@@ -97,11 +136,71 @@ export default function weatherapp() {
           })
     }
   
-
-  useEffect(()=>{
+ useEffect(()=>{
     CallWeatherApi("Antwerpen");
 
-  }, [])  
+  }, []) 
+   
+
+  const icons = [
+    {
+        title: 'snow',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faSnowflake}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faSnowflake}/></div>
+    },
+    {
+        title: 'rain',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudRain}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faCloudRain}/></div>
+    },
+    {
+        title: 'fog',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faSmog}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faSmog}/></div>
+    },
+    {
+        title: 'wind',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faWind}/></div>,
+        elementSmall: <div className="WeatherIcon"><FontAwesomeIcon icon={faWind}/></div>
+    },
+    {
+        title: 'cloudy',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faCloud}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faCloud}/></div>
+    },
+    {
+        title: 'partly-cloudy-night',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudMoon}/></div>,
+        elementsmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faCloudMoon}/></div>
+    },
+    {
+        title: 'partly-cloudy-day',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudSun}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faCloudSun}/></div>
+    },
+    {
+        title: 'clear-day',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faSun}/></div>,
+        elementSmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faSun}/></div>
+    },
+    {
+        title: 'clear-night',
+        element: <div className="WeatherIcon"><FontAwesomeIcon icon={faMoon}/></div>,
+        elementsmall: <div className="smallWeatherIcon"><FontAwesomeIcon icon={faMoon}/></div>
+    }
+  ]
+
+
+  const findIcon = (day: any) =>{
+    return(
+        icons.map((icon) => {
+            return(
+                icon.title == day ? icon.elementSmall : <></>
+            )
+          })
+    )
+  }
+
 
   return (
     
@@ -118,15 +217,14 @@ export default function weatherapp() {
             <div className="CloudsandTemp">
                 
                 <div className="Clouds">
-                    {condition == 'snow' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faSnowflake}/></div>: <></>} 
-                    {condition == 'rain' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudRain}/></div>: <></>}
-                    {condition == 'fog' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faSmog}/></div>: <></>}
-                    {condition == 'wind' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faWind}/></div>: <></>}
-                    {condition == 'cloudy' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faCloud}/></div>: <></>} 
-                    {condition == 'partly-cloudy-night' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudMoon}/></div>: <></>}
-                    {condition == 'partly-cloudy-day' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faCloudSun}/></div>: <></>}
-                    {condition == 'clear-day' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faSun}/></div>: <></>}
-                    {condition == 'clear-night' ? <div className="WeatherIcon"><FontAwesomeIcon icon={faMoon}/></div>: <></>}
+                    {
+                        icons.map((icon) => {
+                            return(
+                                icon.title == condition ? icon.element : <></>
+                            )
+                        })
+                    }
+                                      
                 </div>
 
                 <div className="Temp">
@@ -141,15 +239,50 @@ export default function weatherapp() {
 
             </div>
             <div className="AdvInfo">
-                <span><FontAwesomeIcon icon={faDroplet}/>{humidity}</span>
-                <span><FontAwesomeIcon icon={faWind}/>{windSpeed}</span>
-                <span></span>
-                
-            </div>
+                <div>
+                    <FontAwesomeIcon className="WeatherIconMedium" icon={faDroplet}/>
+                    <p>{humidity}%</p>
+                </div>
+                <div>
+                    <FontAwesomeIcon className="WeatherIconMedium" icon={faWind}/>
+                    <p>{windSpeed} mph</p>
+                </div>
+                <div>
+                    <FontAwesomeIcon className="WeatherIconMedium" icon={faEye}/>
+                    <p>{visibility }%</p>
+                </div>
+                <div>
+                    <FontAwesomeIcon className="WeatherIconMedium" icon={faCloud}/>
+                    <p>{cloudcover }%</p>
+                </div>
 
+                  
+            </div>
+            
             <div className="nextDays">
                 {day1}
-                {day1W == 'rain' ? <div className="smallWeatherIcon"><FontAwesomeIcon icon={faCloudRain}/></div>: <></>}      
+                {findIcon(day1W)}
+                {temp ? Math.round((day1t - 32) * 5/9)  : <></> }° 
+            </div>
+            <div className="nextDays">
+                {day2}
+                {findIcon(day2W)}      
+                {temp ? Math.round((day2t - 32) * 5/9)  : <></> }° 
+            </div>
+            <div className="nextDays">
+                {day3}
+                {findIcon(day3W)}
+                {temp ? Math.round((day3t - 32) * 5/9)  : <></> }°        
+            </div>
+            <div className="nextDays">
+                {day4}
+                {findIcon(day4W)} 
+                {temp ? Math.round((day4t - 32) * 5/9)  : <></> }°      
+            </div>
+            <div className="nextDays">
+                {day5}
+                {findIcon(day5W)}     
+                {temp ? Math.round((day5t - 32) * 5/9)  : <></> }°
             </div>
         </div>
     </div>

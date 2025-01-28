@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Footer.css"
-import  { faEnvelope, faSignature, faMobile, faGit } from "@fortawesome/free-solid-svg-icons";
+import  { faEnvelope, faSignature, faMobile } from "@fortawesome/free-solid-svg-icons";
 
 export default function Footer() {
   return (

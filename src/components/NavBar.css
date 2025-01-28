@@ -15,6 +15,18 @@
     box-shadow: 3px 3.5px 8px 3px rgba(0, 0, 0, 0.36);
 }
 
+.container-Navbar a{
+    text-decoration: none;
+    color: white;
+    font-family: "Poppins", serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.container-Navbar a:hover{
+    text-decoration: underline;
+    color: white;
+}
+
 .NavBar{
     position: absolute;
     top: 13px;

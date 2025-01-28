@@ -11,7 +11,7 @@
 .system {
     height: fit-content;
     margin: 100px auto;
-    width: 100%;
+    width: 50%;
     padding-top: 30px;
     border: solid 1px;
     border-radius: 2px;
@@ -179,6 +179,28 @@
       align-items: center;
   }
 
+  @media only screen and (max-width: 1400px) {
+
+
+    .system{
+      width: 90%;
+    }
+ 
+  }
+  
+  @media only screen and (max-width: 1200px) {
+    .resources{
+      flex-direction: column;
+      height: 200px;
+      padding: 20px;
+    }
+
+    .system{
+      width: 90%;
+    }
+ 
+  }
+  
   @media only screen and (max-width: 800px) {
     .system{
       width: 100%;
@@ -195,11 +217,6 @@
     }
   }
 
-  @media only screen and (max-width: 1200px) {
-    .resources{
-      flex-direction: column;
-      height: 200px;
-      padding: 20px;
-    }
  
-  }
+
+ 

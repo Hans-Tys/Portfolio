@@ -79,7 +79,7 @@ h3 {
 
 
 .ProfileImage {
-    background-image: url('C:\dev\react-from-zero-to-hero\src\assets\Screenshot 2024-03-07 184812.jpg');
+    background-image: url('../assets/Screenshot 2024-03-07 184812.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;

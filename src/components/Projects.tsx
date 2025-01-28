@@ -7,7 +7,7 @@ export default function Projects() {
             link: "/System",
             title: "System",
             desc: "A character Screen From the Anime solo Leveling",
-            bg: "../assets/shadows-army-solo-leveling.jpg"  
+            bg: "https://motionbgs.com/media/2770/shadows-army-solo-leveling.jpg"  
         },
         {
             link: "/ToDo list",

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect } from "react";
 import './TodoList.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import  { faCircleCheck, faPen, faTrashCan , faArrowsRotate, faBan } from "@fortawesome/free-solid-svg-icons";
+import { spawn } from "child_process";
+ 
 
 
 
@@ -65,6 +67,9 @@ export default function TodoList() {
 
     const [openUpdate, setOpenUpdate] = useState(false);
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
 
 
   return (
@@ -121,7 +126,7 @@ export default function TodoList() {
 
 
 
-        {toDo && toDo.length ? '' : 'No Task...'}
+        {toDo && toDo.length ? '' : <span style={{color:'white'}}>No Task...</span>}
 
         <div className="TaskList">
             {toDo && toDo

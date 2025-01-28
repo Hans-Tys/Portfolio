@@ -1,7 +1,7 @@
 import HealthBar from './HealthBar.tsx';
 import ManaBar from './ManaBar.tsx';
 import './StatusScreen.css';
-import {  useState } from "react";
+import {  useEffect, useState } from "react";
 import { faHeart, faDumbbell, faShoePrints, faEye, faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -65,7 +65,9 @@ function StatusScreen() {
     )
   }
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className='Statusscreen'>

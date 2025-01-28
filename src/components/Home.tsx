@@ -61,8 +61,8 @@ export default function Home() {
             <li>Web app development</li>
           </ul>
           <p>
-            Ook door mijn ervaring met support ben ik er van overtuigd dat ik elk probleem met een doel gerichte instelling kan oplossen door
-            mijn interesse in het helpen van mensen en problem solving. Mijn hands-on aanpak en sterke leergierigheid stellen me in staat
+            Ook door mijn ervaring met support ben ik er van overtuigd dat ik elk probleem met een doelgerichte instelling kan oplossen door
+            mijn interesse in het helpen van mensen en problemsolving skills. Mijn hands-on aanpak en sterke leergierigheid stellen me in staat
             om snel nieuwe technologieën te omarmen.
           </p>
 

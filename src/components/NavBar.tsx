@@ -30,7 +30,6 @@ export default function NavBar() {
 
   }, [])
 
-  console.log(location);
 
   return (
     <div>

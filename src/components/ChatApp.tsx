@@ -11,6 +11,7 @@ export default function ChatApp() {
   async function getCountries() {
     const { data } = await supabase.from("countries").select();
     setCountries(data as any);
+
   }
 
   useEffect(() => {
@@ -20,7 +21,7 @@ export default function ChatApp() {
   return (
     <ul>
       {countries.map((country, i) => (
-        <li key={i}>{country.name}</li>
+        <li key={i}>{country}</li>
       ))}
     </ul>
   );

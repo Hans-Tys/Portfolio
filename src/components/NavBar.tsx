@@ -46,9 +46,9 @@ export default function NavBar() {
           {
             burgerOpen || window.innerWidth > 800 ?
               <>
-                {Destinations.map((Destination) => {
+                {Destinations.map((Destination, i) => {
                   return (
-                    <span><NavLink className="destination" to={Destination.destination} onClick={() => setBurgerOpen(false)}> {Destination.title}  </NavLink></span>
+                    <span key={i}><NavLink className="destination" to={Destination.destination} onClick={() => setBurgerOpen(false)}> {Destination.title}  </NavLink></span>
                   )
                 }
                 )

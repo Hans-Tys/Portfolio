@@ -1,12 +1,13 @@
 
 import './App.css'
 import StatusScreen from './components/StatusScreen.tsx'
-import Home from './components/Home.tsx';
 import NavBar from './components/NavBar.tsx';
 import TodoList from './components/TodoList.tsx'
 import Footer from "./components/Footer.tsx";
 import ArtGallery from './components/ArtGallery.tsx';
 import WeatherApp from './components/WeatherApp.tsx';
+import Animations from './components/Animations.tsx';
+import HomeNewStyle from './components/HomeNewStyle.tsx';
 
 
 import {
@@ -14,12 +15,14 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import ChatApp from './components/ChatApp.tsx';
+
 
 
 const routes = [
   {
     path: "/",
-    element: <Home/>
+    element: <HomeNewStyle/>
   },
   {
     path: "/system",
@@ -36,7 +39,19 @@ const routes = [
   {
     path: "/WeatherApp",
     element: <WeatherApp/>
+  },
+  {
+    path: "/ChatApp",
+    element: <ChatApp/>
+  },
+  {
+    path: "/animations",
+    element: <Animations/>
   }
+  
+ 
+
+  
 
 ]
 
@@ -47,7 +62,7 @@ function App() {
       <NavBar/>
       <Routes>
         {
-          routes.map((route) => {return(<Route path={route.path} element={route.element}/>)})
+          routes.map((route, i) => {return(<Route key={i} path={route.path} element={route.element}/>)})
         }
       </Routes>
       <Footer/>

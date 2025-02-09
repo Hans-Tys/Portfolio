@@ -29,11 +29,11 @@ export default function Projects() {
   return (
     <div id="projects" className="ProjectsContainer">
 
-        
+    
         {
-            Projects.map((project) =>{
+            Projects.map((project, i) =>{
                  return(
-                    <NavLink style={{textDecoration:"none"}} to={project.link}>
+                    <NavLink key={i} style={{textDecoration:"none"}} to={project.link}>
                         <div className='ProjectCard' style={{backgroundImage: `url(${project.bg})`}} >
                             <div className='ProjectText'>
                                 <h5>{project.title}</h5>

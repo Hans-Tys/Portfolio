@@ -2,13 +2,13 @@
 
 
 .ToDoListPage{
-    background-color: white;
+    background-color: #fdf1dd;
     padding: 10px;
     font-family: "Poppins", serif;
 }
 
 .ToDoList h1{
-    color: white;
+    color: #fdf1dd;
 }
 
 
@@ -16,7 +16,7 @@
     margin: 50px auto;
     width: 50%;
     padding: 50px;
-    background-color: #333333;
+    background-color: #1E1E1E;
     border-radius: 50px;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@
 .TaskBg{
     display: flex;
     justify-content: space-between;
-    background-color: rgb(223, 223, 223);
+    background-color: #fdf1dd;
     padding: 12px 0px;
     padding-left: 12px;
     text-align: left;
@@ -82,7 +82,7 @@
 }
 
 .AddButton{
- background-color: rgb(85, 207, 177);
+ background-color: #7799B2;
  border-radius: 15px;
  margin-left: 28px;
  width: 100px;
@@ -90,7 +90,7 @@
 }
 
 .AddButton:hover{
-    background-color: rgb(76, 155, 135);
+    background-color: #7799B2;
 }
 
 .UpdateButton{

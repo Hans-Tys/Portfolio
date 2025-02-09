@@ -1,10 +1,6 @@
 import './Home.css'
 import Projects from './Projects.tsx'
 
-
-
-
-
 export default function Home() {
   const ProgrameerTalen =
     [
@@ -68,6 +64,7 @@ export default function Home() {
 
         </div>
 
+
         <div className="SkillsContainer">
           <h2>Skills</h2>
           <br />
@@ -76,9 +73,9 @@ export default function Home() {
               <h3>Programeertalen</h3>
               <ul>
                 {
-                  ProgrameerTalen.map((taal) => {
+                  ProgrameerTalen.map((taal, i) => {
                     return (
-                      <li>{taal}</li>
+                      <li className='skillAppear' key={i}>{taal}</li>
                     )
                   })
                 }
@@ -88,9 +85,9 @@ export default function Home() {
               <h3>Frameworks en systemen</h3>
               <ul>
                 {
-                  Systemen.map((System) => {
+                  Systemen.map((System, i) => {
                     return (
-                      <li>{System}</li>
+                      <li className='skillAppear' key={i}>{System}</li>
                     )
                   })
                 }

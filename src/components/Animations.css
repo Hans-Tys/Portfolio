@@ -1,0 +1,55 @@
+.container-animations{
+    height: 100vh;
+    width: 100%;
+    background-color: #333;
+  
+}
+
+.Orbs{
+    width: 100%;
+    height: 100vh;
+}
+
+.containerlayers .first{
+    background-color: #7a657c;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 250px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px)
+               translateZ(-550px)
+               rotateY(40deg)
+}
+
+.containerlayers .second{
+    background-color: #c780ce;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 20%;
+    scale: .9;
+    left: calc(50% - 250px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px)
+               translateZ(-550px)
+               translateX(20px)
+               rotateY(40deg)
+}
+
+.containerlayers .third{
+    background-color: #d6bdd88f;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 20%;
+    scale: .8;
+    left: calc(50% - 250px);
+    transform-style: preserve-3d;
+    transform: perspective(1000px)
+               translateZ(-550px)
+               translateX(30px)
+               rotateY(40deg)
+}
+

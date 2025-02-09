@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.NH-Container{
+    background-color: #121212;
+    font-family: "Poppins", serif;
+    font-weight: normal;
+    font-style: normal;
+    height: fit-content;
+}
+
+.NH-Banner-contianer{
+    display: flex;
+    gap: 124px;
+    width: auto;
+    color: #FDF1DD;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 50px;
+    justify-content: space-between;
+}
+
+.NH-Banner-text{
+    padding: 10% 5% 5% 5%;
+    width: 60%;
+}
+
+.NH-ProfileImage{
+    background-image: url('../assets/Screenshot 2024-03-07 184812.jpg');
+    background-size: cover;
+    background-position: center;
+    width: 380px;
+    height: 400px;
+    margin-right: 100px;
+    border-radius: 30px;
+}
+
+
+.NH-About-contianer{
+    background-color: #FDF1DD;
+    height: fit-content;
+    width: 100%;
+    padding-bottom: 64px;
+}
+
+.about-text{
+    margin: auto;
+    width: 40%;
+    padding: 64px 0;   
+    text-align: left;
+}
+
+.about-text h2{
+    text-align: left;
+}
+
+.Stripes{
+    padding-top: 100px;
+    height: 100px;
+    background-image: repeating-linear-gradient(-45deg, #121212 0, #121212 6px, transparent 0, transparent 50%);
+    background-size: 39px 39px;
+    background-color: #fdf1dd;
+    position: relative;
+}
+.topline{
+    position: absolute;
+    top: -1px;
+    width: 100%;
+    height: 5px;
+    background-color: #fdf1dd;
+}
+
+.NH-Skills-contianer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 70%;
+    height: 500px;
+    margin: 0 auto;
+    padding: 64px 0;
+    color: #fdf1dd;
+}
+
+.NH-Icons-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 300px;
+}
+
+.NH-icons{
+    width: 45px;
+    height: 45px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .NH-Banner-contianer{
+        flex-direction: column;
+        padding: 24px;
+        gap: 24px;
+        align-items: center;
+    }
+
+    
+}
+
+@media only screen and (max-width: 1000px) {
+    .NH-Skills-contianer{
+        flex-direction: column;
+        margin-bottom: 64px;
+        gap: 24px;
+    }
+
+    .about-text{
+        width: 70%;
+        
+    }
+
+    .NH-About-contiane{
+        height: fit-content;
+    }
+
+}
+
+@media only screen and (max-width: 800px) {
+    .about-text{
+        width: 90%;
+    }
+
+    .NH-About-contiane{
+        height: fit-content;
+    }
+
+    .NH-ProfileImage{
+        width: 80%;
+        height: 300px;
+        margin-right: 0;
+    }
+
+}

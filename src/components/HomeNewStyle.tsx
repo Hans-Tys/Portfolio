@@ -89,7 +89,7 @@ export default function HomeNewStyle() {
                     <div className='NH-Icons-container'>
                         {   
                             Systemen.map((system) => {
-                                const url = `../assets/${system}.png`
+                                const url = `../assets/${system}.jpg`
                                 return( 
                                     <div className='NH-icons' style={{backgroundImage: `url(${url})`}}> </div>
                                 )

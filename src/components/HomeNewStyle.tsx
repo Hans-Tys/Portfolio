@@ -1,6 +1,7 @@
 import './HomeNewStyle.css'
 import Projects from './Projects.tsx'
 
+
 export default function HomeNewStyle() {
     const ProgrameerTalen =
         [
@@ -88,10 +89,10 @@ export default function HomeNewStyle() {
                     <h3>Frameworks en systemen</h3>
                     <div className='NH-Icons-container'>
                         {   
-                            Systemen.map((system) => {
-                                const url = `public/${system}.npg`
+                            Systemen.map((system, i) => {
+                              const url = 'src/assets/' + `${system}` + '.png'
                                 return( 
-                                    <div className='NH-icons' style={{backgroundImage: `url(${url})`}}> </div>
+                                    <img key={i} src={`${url}`} alt="" className='NH-icons' />
                                 )
                             })
                         }

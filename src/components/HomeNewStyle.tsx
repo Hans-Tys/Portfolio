@@ -1,17 +1,6 @@
 import './HomeNewStyle.css'
 import Projects from './Projects.tsx'
-import react from 'src/assets/react.png'
-import Figma from 'src/assets/Figma.png'
-import Photoshop from 'src/assets/Photoshop.png'
-import InDesign from 'src/assets/InDesign.png'
-import ClipStudioPaint from 'src/assets/Clip studio Paint.png'
-import RubyOnRails from 'src/assets/Ruby on rails.png'
-import bootstrap from 'src/assets/bootstrap.png'
-import VisualStudio from 'src/assets/Visual Studio.png'
-import Git from 'src/assets/Git.png'
-import GitHub from 'src/assets/GitHub.png'
-import SQLite from 'src/assets/SQLite.png'
-import Salesforce from 'src/assets/Salesforce.png'
+
 
 
 
@@ -23,20 +12,22 @@ export default function HomeNewStyle() {
             'HTM/CSS',
             'Python: basis Kennis'
         ]
+
+        
     const Systemen =
         [
-            react,
-            Figma,
-            Photoshop,
-            InDesign,
-            ClipStudioPaint,
-            RubyOnRails,
-            bootstrap,
-            VisualStudio,
-            Git,
-            GitHub,
-            SQLite,
-            Salesforce
+            'react',
+            'Figma',
+            'Photoshop',
+            'InDesign',
+            'ClipStudioPaint',
+            'RubyOnRails',
+            'bootstrap',
+            'VisualStudio',
+            'Git',
+            'GitHub',
+            'SQLite',
+            'Salesforce'
         ]
 
         
@@ -100,7 +91,7 @@ export default function HomeNewStyle() {
                         {   
                             Systemen.map((system, i) => {
                                 return( 
-                                    <img className='NH-icons' src={system} alt='' key={i}/>
+                                    <li key={i}> {system}</li>
                                 )
                             })
                         }

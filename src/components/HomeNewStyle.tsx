@@ -25,12 +25,7 @@ export default function HomeNewStyle() {
             'SQLite',
             'Salesforce'
         ]
-
-
-
-
-
-
+        
     return (
         <div className='NH-Container'>
             <div className='NH-Banner-contianer'>
@@ -90,9 +85,8 @@ export default function HomeNewStyle() {
                     <div className='NH-Icons-container'>
                         {   
                             Systemen.map((system, i) => {
-                              const url = 'src/assets/' + `${system}` + '.png'
                                 return( 
-                                    <img key={i} src={`${url}`} alt="" className='NH-icons' />
+                                    <li className='NH-icon' key={i}>{system}</li>
                                 )
                             })
                         }

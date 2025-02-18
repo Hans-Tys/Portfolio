@@ -1,30 +1,24 @@
-.grid {
-    height: fit-content;
-    width: 100%;
-    padding: 50px
+.ArtGallery{
+    background-color: #121212;
+    min-height: 1020px;
+    position: relative;
 }
 
-.artrow{
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-}
-.artcolumn{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+.artTitle{
+    font-family: quantrum;
+    color: #FDF1DD;
+    position: absolute;
+    margin: 24px 64px;
+    font-size: 96px;
 }
 
-@media only screen and (max-width: 800px) {
-    .grid{
-        padding: 10px
-    }
-  }
+.Big-Image{
+ width: 60vw;
+ height: 100vh;
+ background-size: cover;
+}
 
-  @media only screen and (max-width: 400px) {
-    .artrow{
-        flex-direction: column;
-    }
-  }
-
-
+.side-scroll{
+    width: 40vw;
+    height: 100vh;
+} 

@@ -82,13 +82,14 @@
 
 .NH-Icons-container{
     display: flex;
+    list-style: square;
     flex-wrap: wrap;
     gap: 8px;
     max-width: 300px;
 }
 
 .NH-icons{
-   
+    
     width: 45px;
     height: 45px;
 }

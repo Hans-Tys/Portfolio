@@ -1,6 +1,5 @@
 import './ArtGallery.css'
-import figmaIcon from '../assets/Figma.png'
-import eye from '../assets/eye study arcane.png'
+
 
 
 export default function ArtGallery() {

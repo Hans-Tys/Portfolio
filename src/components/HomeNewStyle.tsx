@@ -1,5 +1,18 @@
 import './HomeNewStyle.css'
 import Projects from './Projects.tsx'
+import react from '../assets/react.png'
+import Figma from '../assets/Figma.png'
+import Photoshop from '../assets/Photoshop.png'
+import InDesign from '../assets/InDesign.png'
+import ClipStudioPaint from '../assets/Clip studio Paint.png'
+import RubyOnRails from '../assets/Ruby on rails.png'
+import bootstrap from '../assets/bootstrap.png'
+import VisualStudio from '../assets/Visual Studio.png'
+import Git from '../assets/Git.png'
+import GitHub from '../assets/GitHub.png'
+import SQLite from '../assets/SQLite.png'
+import Salesforce from '../assets/Salesforce.png'
+
 
 
 export default function HomeNewStyle() {
@@ -12,19 +25,20 @@ export default function HomeNewStyle() {
         ]
     const Systemen =
         [
-            'React',
-            'Figma',
-            'Photoshop',
-            'InDesign',
-            'Clip studio Paint',
-            'Ruby on rails',
-            'bootstrap',
-            'Visual Studio',
-            'Git',
-            'GitHub',
-            'SQLite',
-            'Salesforce'
+            react,
+            Figma,
+            Photoshop,
+            InDesign,
+            ClipStudioPaint,
+            RubyOnRails,
+            bootstrap,
+            VisualStudio,
+            Git,
+            GitHub,
+            SQLite,
+            Salesforce
         ]
+
         
     return (
         <div className='NH-Container'>
@@ -86,7 +100,7 @@ export default function HomeNewStyle() {
                         {   
                             Systemen.map((system, i) => {
                                 return( 
-                                    <li className='NH-icon' key={i}>{system}</li>
+                                    <img className='NH-icons' src={system} alt='' key={i}/>
                                 )
                             })
                         }
